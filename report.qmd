@@ -1,0 +1,171 @@
+---
+title: "ONS Explore Local Statistics: West of England"
+subtitle: "Local authority comparison report"
+
+format:
+  html:
+    toc: true
+    toc-title: "Contents"
+    toc-depth: 2
+    theme: cosmo
+
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+
+source("01_import.R")
+```
+
+# About this report
+
+This report brings together indicators from the Office for National Statistics (ONS) Explore Local Statistics dataset to show how the four West of England local authorities compare with local authorities across England.
+
+It covers a wide range of topics, including population, the economy, employment, skills, housing, health, connectivity, the environment and other measures of local conditions.
+
+For each indicator, the report provides:
+
+-   a short description of what the indicator measures
+-   the unit of measurement
+-   a chart comparing English local authorities
+-   the original data source
+
+The report is intended as an exploratory evidence resource. It provides a consistent way of viewing a large number of local indicators and identifying differences or trends that may warrant further investigation.
+
+# Geography covered
+
+The four West of England local authorities highlighted throughout the report are:
+
+-   Bath and North East Somerset
+-   Bristol, City of
+-   North Somerset
+-   South Gloucestershire
+
+The England comparison includes unitary authorities, non-metropolitan districts, metropolitan districts and London boroughs where data is available for the indicator.
+
+The City of London is excluded from the comparison because its unusually small resident population and high concentration of employment can result in extreme values for some indicators and distort comparisons between local authorities.
+
+The number of local authorities shown may vary between indicators depending on the geography and time periods available in the source data.
+
+Historic local authority geographies may therefore appear in earlier periods of some time series.
+
+# How to read the charts
+
+For indicators with data covering more than one period, all available English local authority time series are shown in grey.
+
+The four West of England local authorities are highlighted using the following colours:
+
+-   **Bath and North East Somerset** — purple
+-   **Bristol, City of** — red
+-   **North Somerset** — coral
+-   **South Gloucestershire** — green
+
+For indicators with only one period of data, English local authorities are ordered from the lowest to the highest value. The four West of England local authorities are highlighted using the same colours.
+
+The charts use the full period of data available for each indicator, so the time periods covered vary between indicators.
+
+# Important points when interpreting the data
+
+This report is intended to support comparison and exploration rather than provide a ranking of local authorities.
+
+Differences between areas should be interpreted in the context of the indicator being considered. Local authorities vary considerably in their population, economy, geography and other characteristics.
+
+Data availability and coverage also vary between indicators. Not every local authority necessarily has a value for every indicator or every period.
+
+Changes over time may also be affected by changes to local authority boundaries, indicator definitions, methodologies or data availability.
+
+For more detailed interpretation, users should refer to the original source identified beneath each chart.
+
+# Data and methodology
+
+The report uses data and metadata from the ONS Explore Local Statistics dataset.
+
+English local authorities are identified using the following geography code types:
+
+-   `E06` — unitary authorities
+-   `E07` — non-metropolitan districts
+-   `E08` — metropolitan districts
+-   `E09` — London boroughs
+
+The City of London (`E09000001`) is excluded from the comparison.
+
+Where an indicator contains multiple periods, a line chart is used to show the full available time series.
+
+Where only one period is available, a sorted bar chart is used to show the distribution of values across English local authorities.
+
+Indicator descriptions, units and source information are taken from the metadata accompanying the ONS Explore Local Statistics dataset.
+
+**Population by age and sex is excluded from this report** because it contains multiple age and sex breakdowns rather than a single comparable local authority series.
+
+# Indicators
+
+The following sections are generated automatically from the indicators available in the dataset.
+
+```{r, results='asis'}
+# Create the list of indicators to include
+
+all_indicators <- metadata_english %>%
+  filter(
+    indicator != "Population by age and sex"
+  ) %>%
+  pull(indicator)
+
+
+# Generate one section for each indicator
+
+for (indicator_name in all_indicators) {
+
+  indicator_meta <- metadata_english %>%
+    filter(
+      indicator == indicator_name
+    )
+
+  cat(
+    "\n\n## ",
+    indicator_name,
+    "\n\n",
+    sep = ""
+  )
+
+  cat(
+    "**What it measures:** ",
+    indicator_meta$description,
+    "\n\n",
+    sep = ""
+  )
+
+  cat(
+    "**Unit:** ",
+    indicator_meta$unit,
+    "\n\n",
+    sep = ""
+  )
+
+  print(
+    plot_indicator(
+      indicator_name
+    )
+  )
+
+  cat(
+    "\n\n",
+    indicator_meta$source,
+    "\n\n",
+    sep = ""
+  )
+}
+```
+
+# Notes
+
+This report is generated automatically from the underlying ONS Explore Local Statistics data and accompanying metadata.
+
+The latest available period differs between indicators because the underlying datasets are published and updated at different frequencies.
+
+The inclusion of an indicator in this report does not imply that it is a measure of local authority performance. Many indicators are influenced by wider economic, demographic, social and geographic factors.
+
+For detailed definitions, methodology, revisions and statistical quality information, users should refer to the original data source identified beneath each chart.
