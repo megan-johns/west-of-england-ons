@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ONS Explore Local Statistics: West of England</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="report_files/libs/clipboard/clipboard.min.js"></script>
+<script src="report_files/libs/quarto-html/quarto.js"></script>
+<script src="report_files/libs/quarto-html/popper.min.js"></script>
+<script src="report_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="report_files/libs/quarto-html/anchor.min.js"></script>
+<link href="report_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="report_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="report_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="report_files/libs/bootstrap/bootstrap-32162a2fca7cb0439643f2faaab1edf3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#about-this-report" id="toc-about-this-report" class="nav-link active" data-scroll-target="#about-this-report">About this report</a></li>
+  <li><a href="#geography-covered" id="toc-geography-covered" class="nav-link" data-scroll-target="#geography-covered">Geography covered</a></li>
+  <li><a href="#how-to-read-the-charts" id="toc-how-to-read-the-charts" class="nav-link" data-scroll-target="#how-to-read-the-charts">How to read the charts</a></li>
+  <li><a href="#important-points-when-interpreting-the-data" id="toc-important-points-when-interpreting-the-data" class="nav-link" data-scroll-target="#important-points-when-interpreting-the-data">Important points when interpreting the data</a></li>
+  <li><a href="#data-and-methodology" id="toc-data-and-methodology" class="nav-link" data-scroll-target="#data-and-methodology">Data and methodology</a></li>
+  <li><a href="#indicators" id="toc-indicators" class="nav-link" data-scroll-target="#indicators">Indicators</a>
+  <ul class="collapse">
+  <li><a href="#total-population" id="toc-total-population" class="nav-link" data-scroll-target="#total-population">Total population</a></li>
+  <li><a href="#population-density" id="toc-population-density" class="nav-link" data-scroll-target="#population-density">Population density</a></li>
+  <li><a href="#five-year-population-change" id="toc-five-year-population-change" class="nav-link" data-scroll-target="#five-year-population-change">Five-year population change</a></li>
+  <li><a href="#median-age" id="toc-median-age" class="nav-link" data-scroll-target="#median-age">Median age</a></li>
+  <li><a href="#population-aged-0-to-15" id="toc-population-aged-0-to-15" class="nav-link" data-scroll-target="#population-aged-0-to-15">Population aged 0 to 15</a></li>
+  <li><a href="#population-aged-16-to-64" id="toc-population-aged-16-to-64" class="nav-link" data-scroll-target="#population-aged-16-to-64">Population aged 16 to 64</a></li>
+  <li><a href="#population-aged-65-and-over" id="toc-population-aged-65-and-over" class="nav-link" data-scroll-target="#population-aged-65-and-over">Population aged 65 and over</a></li>
+  <li><a href="#economic-inactivity-rate-great-britain" id="toc-economic-inactivity-rate-great-britain" class="nav-link" data-scroll-target="#economic-inactivity-rate-great-britain">Economic inactivity rate (Great Britain)</a></li>
+  <li><a href="#employment-rate-great-britain" id="toc-employment-rate-great-britain" class="nav-link" data-scroll-target="#employment-rate-great-britain">Employment rate (Great Britain)</a></li>
+  <li><a href="#modelled-unemployment-rate" id="toc-modelled-unemployment-rate" class="nav-link" data-scroll-target="#modelled-unemployment-rate">Modelled unemployment rate</a></li>
+  <li><a href="#claimant-count" id="toc-claimant-count" class="nav-link" data-scroll-target="#claimant-count">Claimant Count</a></li>
+  <li><a href="#job-density" id="toc-job-density" class="nav-link" data-scroll-target="#job-density">Job density</a></li>
+  <li><a href="#gross-disposable-household-income-per-head" id="toc-gross-disposable-household-income-per-head" class="nav-link" data-scroll-target="#gross-disposable-household-income-per-head">Gross disposable household income per head</a></li>
+  <li><a href="#gross-median-weekly-pay" id="toc-gross-median-weekly-pay" class="nav-link" data-scroll-target="#gross-median-weekly-pay">Gross median weekly pay</a></li>
+  <li><a href="#children-in-relative-poverty-before-housing-costs" id="toc-children-in-relative-poverty-before-housing-costs" class="nav-link" data-scroll-target="#children-in-relative-poverty-before-housing-costs">Children in relative poverty before housing costs</a></li>
+  <li><a href="#children-in-relative-poverty-after-housing-costs" id="toc-children-in-relative-poverty-after-housing-costs" class="nav-link" data-scroll-target="#children-in-relative-poverty-after-housing-costs">Children in relative poverty after housing costs</a></li>
+  <li><a href="#fuel-poverty-england" id="toc-fuel-poverty-england" class="nav-link" data-scroll-target="#fuel-poverty-england">Fuel poverty (England)</a></li>
+  <li><a href="#gross-value-added-per-hour-worked" id="toc-gross-value-added-per-hour-worked" class="nav-link" data-scroll-target="#gross-value-added-per-hour-worked">Gross value added per hour worked</a></li>
+  <li><a href="#gross-value-added-per-job-filled" id="toc-gross-value-added-per-job-filled" class="nav-link" data-scroll-target="#gross-value-added-per-job-filled">Gross value added per job filled</a></li>
+  <li><a href="#gross-domestic-product-per-head-at-current-market-prices" id="toc-gross-domestic-product-per-head-at-current-market-prices" class="nav-link" data-scroll-target="#gross-domestic-product-per-head-at-current-market-prices">Gross domestic product per head at current market prices</a></li>
+  <li><a href="#gross-domestic-product-per-head-in-chained-volume-measures" id="toc-gross-domestic-product-per-head-in-chained-volume-measures" class="nav-link" data-scroll-target="#gross-domestic-product-per-head-in-chained-volume-measures">Gross domestic product per head in chained volume measures</a></li>
+  <li><a href="#active-businesses" id="toc-active-businesses" class="nav-link" data-scroll-target="#active-businesses">Active businesses</a></li>
+  <li><a href="#business-births" id="toc-business-births" class="nav-link" data-scroll-target="#business-births">Business births</a></li>
+  <li><a href="#business-deaths" id="toc-business-deaths" class="nav-link" data-scroll-target="#business-deaths">Business deaths</a></li>
+  <li><a href="#high-growth-businesses" id="toc-high-growth-businesses" class="nav-link" data-scroll-target="#high-growth-businesses">High growth businesses</a></li>
+  <li><a href="#one-year-business-survival-rate" id="toc-one-year-business-survival-rate" class="nav-link" data-scroll-target="#one-year-business-survival-rate">One-year business survival rate</a></li>
+  <li><a href="#two-year-business-survival-rate" id="toc-two-year-business-survival-rate" class="nav-link" data-scroll-target="#two-year-business-survival-rate">Two-year business survival rate</a></li>
+  <li><a href="#three-year-business-survival-rate" id="toc-three-year-business-survival-rate" class="nav-link" data-scroll-target="#three-year-business-survival-rate">Three-year business survival rate</a></li>
+  <li><a href="#four-year-business-survival-rate" id="toc-four-year-business-survival-rate" class="nav-link" data-scroll-target="#four-year-business-survival-rate">Four-year business survival rate</a></li>
+  <li><a href="#five-year-business-survival-rate" id="toc-five-year-business-survival-rate" class="nav-link" data-scroll-target="#five-year-business-survival-rate">Five-year business survival rate</a></li>
+  <li><a href="#food-outlets" id="toc-food-outlets" class="nav-link" data-scroll-target="#food-outlets">Food outlets</a></li>
+  <li><a href="#net-additions-to-the-housing-stock-england" id="toc-net-additions-to-the-housing-stock-england" class="nav-link" data-scroll-target="#net-additions-to-the-housing-stock-england">Net additions to the housing stock (England)</a></li>
+  <li><a href="#average-house-price" id="toc-average-house-price" class="nav-link" data-scroll-target="#average-house-price">Average house price</a></li>
+  <li><a href="#housing-affordability-ratio-residence-based" id="toc-housing-affordability-ratio-residence-based" class="nav-link" data-scroll-target="#housing-affordability-ratio-residence-based">Housing affordability ratio (residence-based)</a></li>
+  <li><a href="#first-time-buyer-mortgage-sales" id="toc-first-time-buyer-mortgage-sales" class="nav-link" data-scroll-target="#first-time-buyer-mortgage-sales">First-time buyer mortgage sales</a></li>
+  <li><a href="#average-length-of-short-term-let-stay" id="toc-average-length-of-short-term-let-stay" class="nav-link" data-scroll-target="#average-length-of-short-term-let-stay">Average length of short-term let stay</a></li>
+  <li><a href="#number-of-guest-nights-at-a-short-term-let" id="toc-number-of-guest-nights-at-a-short-term-let" class="nav-link" data-scroll-target="#number-of-guest-nights-at-a-short-term-let">Number of guest nights at a short-term let</a></li>
+  <li><a href="#further-education-and-skills-learner-achievements" id="toc-further-education-and-skills-learner-achievements" class="nav-link" data-scroll-target="#further-education-and-skills-learner-achievements">Further education and skills learner achievements</a></li>
+  <li><a href="#further-education-and-skills-participation" id="toc-further-education-and-skills-participation" class="nav-link" data-scroll-target="#further-education-and-skills-participation">Further education and skills participation</a></li>
+  <li><a href="#gcses-in-english-and-maths" id="toc-gcses-in-english-and-maths" class="nav-link" data-scroll-target="#gcses-in-english-and-maths">GCSEs in English and Maths</a></li>
+  <li><a href="#level-3-or-above-qualifications-great-britain" id="toc-level-3-or-above-qualifications-great-britain" class="nav-link" data-scroll-target="#level-3-or-above-qualifications-great-britain">Level 3 or above qualifications (Great Britain)</a></li>
+  <li><a href="#pupils-at-the-end-of-key-stage-2-meeting-the-expected-standard-in-reading-writing-and-maths-combined" id="toc-pupils-at-the-end-of-key-stage-2-meeting-the-expected-standard-in-reading-writing-and-maths-combined" class="nav-link" data-scroll-target="#pupils-at-the-end-of-key-stage-2-meeting-the-expected-standard-in-reading-writing-and-maths-combined">Pupils at the end of key stage 2 meeting the expected standard in reading, writing and maths (combined)</a></li>
+  <li><a href="#no-qualifications" id="toc-no-qualifications" class="nav-link" data-scroll-target="#no-qualifications">No qualifications</a></li>
+  <li><a href="#communication-and-language-skills-by-end-of-early-years-foundation-stage" id="toc-communication-and-language-skills-by-end-of-early-years-foundation-stage" class="nav-link" data-scroll-target="#communication-and-language-skills-by-end-of-early-years-foundation-stage">Communication and language skills by end of early years foundation stage</a></li>
+  <li><a href="#literacy-skills-by-end-of-early-years-foundation-stage" id="toc-literacy-skills-by-end-of-early-years-foundation-stage" class="nav-link" data-scroll-target="#literacy-skills-by-end-of-early-years-foundation-stage">Literacy skills by end of early years foundation stage</a></li>
+  <li><a href="#maths-skills-by-end-of-early-years-foundation-stage" id="toc-maths-skills-by-end-of-early-years-foundation-stage" class="nav-link" data-scroll-target="#maths-skills-by-end-of-early-years-foundation-stage">Maths skills by end of early years foundation stage</a></li>
+  <li><a href="#persistent-absences-for-all-pupils" id="toc-persistent-absences-for-all-pupils" class="nav-link" data-scroll-target="#persistent-absences-for-all-pupils">Persistent absences for all pupils</a></li>
+  <li><a href="#persistent-absences-for-pupils-eligible-for-free-school-meals" id="toc-persistent-absences-for-pupils-eligible-for-free-school-meals" class="nav-link" data-scroll-target="#persistent-absences-for-pupils-eligible-for-free-school-meals">Persistent absences for pupils eligible for free school meals</a></li>
+  <li><a href="#persistent-absences-for-pupils-looked-after-by-local-authorities" id="toc-persistent-absences-for-pupils-looked-after-by-local-authorities" class="nav-link" data-scroll-target="#persistent-absences-for-pupils-looked-after-by-local-authorities">Persistent absences for pupils looked after by local authorities</a></li>
+  <li><a href="#apprenticeship-achievements-england" id="toc-apprenticeship-achievements-england" class="nav-link" data-scroll-target="#apprenticeship-achievements-england">Apprenticeship achievements (England)</a></li>
+  <li><a href="#apprenticeship-starts-england" id="toc-apprenticeship-starts-england" class="nav-link" data-scroll-target="#apprenticeship-starts-england">Apprenticeship starts (England)</a></li>
+  <li><a href="#cigarette-smokers" id="toc-cigarette-smokers" class="nav-link" data-scroll-target="#cigarette-smokers">Cigarette smokers</a></li>
+  <li><a href="#healthy-weight-prevalence-in-children-at-reception-age" id="toc-healthy-weight-prevalence-in-children-at-reception-age" class="nav-link" data-scroll-target="#healthy-weight-prevalence-in-children-at-reception-age">Healthy weight prevalence in children at reception age</a></li>
+  <li><a href="#healthy-weight-prevalence-in-children-at-year-6-age" id="toc-healthy-weight-prevalence-in-children-at-year-6-age" class="nav-link" data-scroll-target="#healthy-weight-prevalence-in-children-at-year-6-age">Healthy weight prevalence in children at Year 6 age</a></li>
+  <li><a href="#obesity-prevalence-in-children-at-reception-age" id="toc-obesity-prevalence-in-children-at-reception-age" class="nav-link" data-scroll-target="#obesity-prevalence-in-children-at-reception-age">Obesity prevalence in children at reception age</a></li>
+  <li><a href="#obesity-prevalence-in-children-at-year-6-age" id="toc-obesity-prevalence-in-children-at-year-6-age" class="nav-link" data-scroll-target="#obesity-prevalence-in-children-at-year-6-age">Obesity prevalence in children at Year 6 age</a></li>
+  <li><a href="#overweight-prevalence-in-children-at-reception-age" id="toc-overweight-prevalence-in-children-at-reception-age" class="nav-link" data-scroll-target="#overweight-prevalence-in-children-at-reception-age">Overweight prevalence in children at reception age</a></li>
+  <li><a href="#overweight-prevalence-in-children-at-year-6-age" id="toc-overweight-prevalence-in-children-at-year-6-age" class="nav-link" data-scroll-target="#overweight-prevalence-in-children-at-year-6-age">Overweight prevalence in children at Year 6 age</a></li>
+  <li><a href="#underweight-prevalence-in-children-at-reception-age" id="toc-underweight-prevalence-in-children-at-reception-age" class="nav-link" data-scroll-target="#underweight-prevalence-in-children-at-reception-age">Underweight prevalence in children at reception age</a></li>
+  <li><a href="#underweight-prevalence-in-children-at-year-6-age" id="toc-underweight-prevalence-in-children-at-year-6-age" class="nav-link" data-scroll-target="#underweight-prevalence-in-children-at-year-6-age">Underweight prevalence in children at Year 6 age</a></li>
+  <li><a href="#adult-obesity-prevalence" id="toc-adult-obesity-prevalence" class="nav-link" data-scroll-target="#adult-obesity-prevalence">Adult obesity prevalence</a></li>
+  <li><a href="#cancer-diagnosis-at-stage-1-and-2" id="toc-cancer-diagnosis-at-stage-1-and-2" class="nav-link" data-scroll-target="#cancer-diagnosis-at-stage-1-and-2">Cancer diagnosis at stage 1 and 2</a></li>
+  <li><a href="#preventable-cardiovascular-mortality-england" id="toc-preventable-cardiovascular-mortality-england" class="nav-link" data-scroll-target="#preventable-cardiovascular-mortality-england">Preventable cardiovascular mortality (England)</a></li>
+  <li><a href="#female-healthy-life-expectancy" id="toc-female-healthy-life-expectancy" class="nav-link" data-scroll-target="#female-healthy-life-expectancy">Female healthy life expectancy</a></li>
+  <li><a href="#male-healthy-life-expectancy" id="toc-male-healthy-life-expectancy" class="nav-link" data-scroll-target="#male-healthy-life-expectancy">Male healthy life expectancy</a></li>
+  <li><a href="#anxiety" id="toc-anxiety" class="nav-link" data-scroll-target="#anxiety">Anxiety</a></li>
+  <li><a href="#feeling-life-is-worthwhile" id="toc-feeling-life-is-worthwhile" class="nav-link" data-scroll-target="#feeling-life-is-worthwhile">Feeling life is worthwhile</a></li>
+  <li><a href="#happiness" id="toc-happiness" class="nav-link" data-scroll-target="#happiness">Happiness</a></li>
+  <li><a href="#life-satisfaction" id="toc-life-satisfaction" class="nav-link" data-scroll-target="#life-satisfaction">Life satisfaction</a></li>
+  <li><a href="#domestic-electricity-consumption" id="toc-domestic-electricity-consumption" class="nav-link" data-scroll-target="#domestic-electricity-consumption">Domestic electricity consumption</a></li>
+  <li><a href="#domestic-gas-consumption" id="toc-domestic-gas-consumption" class="nav-link" data-scroll-target="#domestic-gas-consumption">Domestic gas consumption</a></li>
+  <li><a href="#greenhouse-gas-emissions" id="toc-greenhouse-gas-emissions" class="nav-link" data-scroll-target="#greenhouse-gas-emissions">Greenhouse gas emissions</a></li>
+  <li><a href="#air-pollution-regulating" id="toc-air-pollution-regulating" class="nav-link" data-scroll-target="#air-pollution-regulating">Air pollution regulating</a></li>
+  <li><a href="#greenhouse-gas-regulating" id="toc-greenhouse-gas-regulating" class="nav-link" data-scroll-target="#greenhouse-gas-regulating">Greenhouse gas regulating</a></li>
+  <li><a href="#urban-heat-regulating" id="toc-urban-heat-regulating" class="nav-link" data-scroll-target="#urban-heat-regulating">Urban heat regulating</a></li>
+  <li><a href="#gigabit-capable-broadband" id="toc-gigabit-capable-broadband" class="nav-link" data-scroll-target="#gigabit-capable-broadband">Gigabit capable broadband</a></li>
+  <li><a href="#g-coverage" id="toc-g-coverage" class="nav-link" data-scroll-target="#g-coverage">4G coverage</a></li>
+  <li><a href="#g-coverage-1" id="toc-g-coverage-1" class="nav-link" data-scroll-target="#g-coverage-1">5G coverage</a></li>
+  <li><a href="#premises-below-30mbps" id="toc-premises-below-30mbps" class="nav-link" data-scroll-target="#premises-below-30mbps">Premises below 30Mbps</a></li>
+  <li><a href="#motor-vehicle-flow" id="toc-motor-vehicle-flow" class="nav-link" data-scroll-target="#motor-vehicle-flow">Motor vehicle flow</a></li>
+  <li><a href="#public-electric-vehicle-chargers" id="toc-public-electric-vehicle-chargers" class="nav-link" data-scroll-target="#public-electric-vehicle-chargers">Public electric vehicle chargers</a></li>
+  <li><a href="#travel-time-to-employment-centre-by-bicycle" id="toc-travel-time-to-employment-centre-by-bicycle" class="nav-link" data-scroll-target="#travel-time-to-employment-centre-by-bicycle">Travel time to employment centre by bicycle</a></li>
+  <li><a href="#travel-time-to-employment-centre-by-car" id="toc-travel-time-to-employment-centre-by-car" class="nav-link" data-scroll-target="#travel-time-to-employment-centre-by-car">Travel time to employment centre by car</a></li>
+  <li><a href="#travel-time-to-employment-centre-by-public-transport-and-walking" id="toc-travel-time-to-employment-centre-by-public-transport-and-walking" class="nav-link" data-scroll-target="#travel-time-to-employment-centre-by-public-transport-and-walking">Travel time to employment centre by public transport and walking</a></li>
+  <li><a href="#supermarkets" id="toc-supermarkets" class="nav-link" data-scroll-target="#supermarkets">Supermarkets</a></li>
+  <li><a href="#sports-facilities" id="toc-sports-facilities" class="nav-link" data-scroll-target="#sports-facilities">Sports facilities</a></li>
+  <li><a href="#museums" id="toc-museums" class="nav-link" data-scroll-target="#museums">Museums</a></li>
+  <li><a href="#residents-within-a-30-minute-walk-of-their-nearest-library" id="toc-residents-within-a-30-minute-walk-of-their-nearest-library" class="nav-link" data-scroll-target="#residents-within-a-30-minute-walk-of-their-nearest-library">Residents within a 30 minute walk of their nearest library</a></li>
+  <li><a href="#residents-within-a-30-minute-walk-of-their-nearest-railway-station" id="toc-residents-within-a-30-minute-walk-of-their-nearest-railway-station" class="nav-link" data-scroll-target="#residents-within-a-30-minute-walk-of-their-nearest-railway-station">Residents within a 30 minute walk of their nearest railway station</a></li>
+  <li><a href="#engaged-with-the-arts" id="toc-engaged-with-the-arts" class="nav-link" data-scroll-target="#engaged-with-the-arts">Engaged with the arts</a></li>
+  <li><a href="#visited-a-heritage-site" id="toc-visited-a-heritage-site" class="nav-link" data-scroll-target="#visited-a-heritage-site">Visited a heritage site</a></li>
+  <li><a href="#visited-a-museum-or-gallery" id="toc-visited-a-museum-or-gallery" class="nav-link" data-scroll-target="#visited-a-museum-or-gallery">Visited a museum or gallery</a></li>
+  <li><a href="#visited-a-public-library" id="toc-visited-a-public-library" class="nav-link" data-scroll-target="#visited-a-public-library">Visited a public library</a></li>
+  </ul></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ONS Explore Local Statistics: West of England</h1>
+<p class="subtitle lead">Local authority comparison report</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="about-this-report" class="level1">
+<h1>About this report</h1>
+<p>This report brings together indicators from the Office for National Statistics (ONS) Explore Local Statistics dataset to show how the four West of England local authorities compare with local authorities across England.</p>
+<p>It covers a wide range of topics, including population, the economy, employment, skills, housing, health, connectivity, the environment and other measures of local conditions.</p>
+<p>For each indicator, the report provides:</p>
+<ul>
+<li>a short description of what the indicator measures</li>
+<li>the unit of measurement</li>
+<li>a chart comparing English local authorities</li>
+<li>the original data source</li>
+</ul>
+<p>The report is intended as an exploratory evidence resource. It provides a consistent way of viewing a large number of local indicators and identifying differences or trends that may warrant further investigation.</p>
+</section>
+<section id="geography-covered" class="level1">
+<h1>Geography covered</h1>
+<p>The four West of England local authorities highlighted throughout the report are:</p>
+<ul>
+<li>Bath and North East Somerset</li>
+<li>Bristol, City of</li>
+<li>North Somerset</li>
+<li>South Gloucestershire</li>
+</ul>
+<p>The England comparison includes unitary authorities, non-metropolitan districts, metropolitan districts and London boroughs where data is available for the indicator.</p>
+<p>The City of London is excluded from the comparison because its unusually small resident population and high concentration of employment can result in extreme values for some indicators and distort comparisons between local authorities.</p>
+<p>The number of local authorities shown may vary between indicators depending on the geography and time periods available in the source data.</p>
+<p>Historic local authority geographies may therefore appear in earlier periods of some time series.</p>
+</section>
+<section id="how-to-read-the-charts" class="level1">
+<h1>How to read the charts</h1>
+<p>For indicators with data covering more than one period, all available English local authority time series are shown in grey.</p>
+<p>The four West of England local authorities are highlighted using the following colours:</p>
+<ul>
+<li><strong>Bath and North East Somerset</strong> — purple</li>
+<li><strong>Bristol, City of</strong> — red</li>
+<li><strong>North Somerset</strong> — coral</li>
+<li><strong>South Gloucestershire</strong> — green</li>
+</ul>
+<p>For indicators with only one period of data, English local authorities are ordered from the lowest to the highest value. The four West of England local authorities are highlighted using the same colours.</p>
+<p>The charts use the full period of data available for each indicator, so the time periods covered vary between indicators.</p>
+</section>
+<section id="important-points-when-interpreting-the-data" class="level1">
+<h1>Important points when interpreting the data</h1>
+<p>This report is intended to support comparison and exploration rather than provide a ranking of local authorities.</p>
+<p>Differences between areas should be interpreted in the context of the indicator being considered. Local authorities vary considerably in their population, economy, geography and other characteristics.</p>
+<p>Data availability and coverage also vary between indicators. Not every local authority necessarily has a value for every indicator or every period.</p>
+<p>Changes over time may also be affected by changes to local authority boundaries, indicator definitions, methodologies or data availability.</p>
+<p>For more detailed interpretation, users should refer to the original source identified beneath each chart.</p>
+</section>
+<section id="data-and-methodology" class="level1">
+<h1>Data and methodology</h1>
+<p>The report uses data and metadata from the ONS Explore Local Statistics dataset.</p>
+<p>English local authorities are identified using the following geography code types:</p>
+<ul>
+<li><code>E06</code> — unitary authorities</li>
+<li><code>E07</code> — non-metropolitan districts</li>
+<li><code>E08</code> — metropolitan districts</li>
+<li><code>E09</code> — London boroughs</li>
+</ul>
+<p>The City of London (<code>E09000001</code>) is excluded from the comparison.</p>
+<p>Where an indicator contains multiple periods, a line chart is used to show the full available time series.</p>
+<p>Where only one period is available, a sorted bar chart is used to show the distribution of values across English local authorities.</p>
+<p>Indicator descriptions, units and source information are taken from the metadata accompanying the ONS Explore Local Statistics dataset.</p>
+<p><strong>Population by age and sex is excluded from this report</strong> because it contains multiple age and sex breakdowns rather than a single comparable local authority series.</p>
+</section>
+<section id="indicators" class="level1">
+<h1>Indicators</h1>
+<p>The following sections are generated automatically from the indicators available in the dataset.</p>
+<section id="total-population" class="level2">
+<h2 class="anchored" data-anchor-id="total-population">Total population</h2>
+<p><strong>What it measures:</strong> Mid-year estimate of the total number of people</p>
+<p><strong>Unit:</strong> Persons</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 26/09/2025</p>
+</section>
+<section id="population-density" class="level2">
+<h2 class="anchored" data-anchor-id="population-density">Population density</h2>
+<p><strong>What it measures:</strong> Number of people resident per square kilometre</p>
+<p><strong>Unit:</strong> Persons</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 26/09/2025</p>
+</section>
+<section id="five-year-population-change" class="level2">
+<h2 class="anchored" data-anchor-id="five-year-population-change">Five-year population change</h2>
+<p><strong>What it measures:</strong> Percentage growth or decline over a five-year period</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 26/09/2025</p>
+</section>
+<section id="median-age" class="level2">
+<h2 class="anchored" data-anchor-id="median-age">Median age</h2>
+<p><strong>What it measures:</strong> Median age of people</p>
+<p><strong>Unit:</strong> Years</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-4.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 26/09/2025</p>
+</section>
+<section id="population-aged-0-to-15" class="level2">
+<h2 class="anchored" data-anchor-id="population-aged-0-to-15">Population aged 0 to 15</h2>
+<p><strong>What it measures:</strong> Percentage of the population aged 0 to 15</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-5.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 26/09/2025</p>
+</section>
+<section id="population-aged-16-to-64" class="level2">
+<h2 class="anchored" data-anchor-id="population-aged-16-to-64">Population aged 16 to 64</h2>
+<p><strong>What it measures:</strong> Percentage of the population aged 16 to 64</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-6.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 26/09/2025</p>
+</section>
+<section id="population-aged-65-and-over" class="level2">
+<h2 class="anchored" data-anchor-id="population-aged-65-and-over">Population aged 65 and over</h2>
+<p><strong>What it measures:</strong> Percentage of the population aged 65 and over</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-7.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 26/09/2025</p>
+</section>
+<section id="economic-inactivity-rate-great-britain" class="level2">
+<h2 class="anchored" data-anchor-id="economic-inactivity-rate-great-britain">Economic inactivity rate (Great Britain)</h2>
+<p><strong>What it measures:</strong> Percentage of people aged 16 to 64 who are not in employment and are not actively seeking work</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-8.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 16/04/2024</p>
+</section>
+<section id="employment-rate-great-britain" class="level2">
+<h2 class="anchored" data-anchor-id="employment-rate-great-britain">Employment rate (Great Britain)</h2>
+<p><strong>What it measures:</strong> Percentage of people aged 16 to 64 in employment</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-9.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 16/04/2024</p>
+</section>
+<section id="modelled-unemployment-rate" class="level2">
+<h2 class="anchored" data-anchor-id="modelled-unemployment-rate">Modelled unemployment rate</h2>
+<p><strong>What it measures:</strong> Modelled percentage of economically active people aged 16 years and over without a job and actively seeking work</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-10.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 16/04/2024</p>
+</section>
+<section id="claimant-count" class="level2">
+<h2 class="anchored" data-anchor-id="claimant-count">Claimant Count</h2>
+<p><strong>What it measures:</strong> Percentage of people aged 16 to 64 who are claiming unemployment-related benefits</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-11.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 20/01/2026</p>
+</section>
+<section id="job-density" class="level2">
+<h2 class="anchored" data-anchor-id="job-density">Job density</h2>
+<p><strong>What it measures:</strong> Number of jobs per resident aged 16 to 64</p>
+<p><strong>Unit:</strong> Number of jobs per resident aged 16 to 64</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-12.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 21/04/2026</p>
+</section>
+<section id="gross-disposable-household-income-per-head" class="level2">
+<h2 class="anchored" data-anchor-id="gross-disposable-household-income-per-head">Gross disposable household income per head</h2>
+<p><strong>What it measures:</strong> Average income per person (£) after taxes and direct benefits</p>
+<p><strong>Unit:</strong> £</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-13.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 19/08/2026</p>
+</section>
+<section id="gross-median-weekly-pay" class="level2">
+<h2 class="anchored" data-anchor-id="gross-median-weekly-pay">Gross median weekly pay</h2>
+<p><strong>What it measures:</strong> Gross median weekly pay based on where people live (£)</p>
+<p><strong>Unit:</strong> £</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-14.png" class="img-fluid" width="672"></p>
+<p>Source 1: Office for National Statistics, published on 23/10/2025 | Source 2: Northern Ireland Statistics and Research Agency, published on 23/10/2025</p>
+</section>
+<section id="children-in-relative-poverty-before-housing-costs" class="level2">
+<h2 class="anchored" data-anchor-id="children-in-relative-poverty-before-housing-costs">Children in relative poverty before housing costs</h2>
+<p><strong>What it measures:</strong> Percentage of children aged under 16 living in relative low income families Before Housing Costs (BHC)</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-15.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Work and Pensions, published on 26/03/2026</p>
+</section>
+<section id="children-in-relative-poverty-after-housing-costs" class="level2">
+<h2 class="anchored" data-anchor-id="children-in-relative-poverty-after-housing-costs">Children in relative poverty after housing costs</h2>
+<p><strong>What it measures:</strong> Percentage of children aged under 16 living in relative low income families After Housing Costs (AHC)</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-16.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Work and Pensions, published on 26/03/2026</p>
+</section>
+<section id="fuel-poverty-england" class="level2">
+<h2 class="anchored" data-anchor-id="fuel-poverty-england">Fuel poverty (England)</h2>
+<p><strong>What it measures:</strong> Percentage of households in fuel poverty (Low Income Low Energy Efficiency metric)</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-17.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Energy Security and Net Zero, published on 14/05/2026</p>
+</section>
+<section id="gross-value-added-per-hour-worked" class="level2">
+<h2 class="anchored" data-anchor-id="gross-value-added-per-hour-worked">Gross value added per hour worked</h2>
+<p><strong>What it measures:</strong> Estimated value added of goods and services produced per hour worked</p>
+<p><strong>Unit:</strong> £</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-18.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 19/06/2025</p>
+</section>
+<section id="gross-value-added-per-job-filled" class="level2">
+<h2 class="anchored" data-anchor-id="gross-value-added-per-job-filled">Gross value added per job filled</h2>
+<p><strong>What it measures:</strong> Estimated value added of goods and services produced per job filled</p>
+<p><strong>Unit:</strong> £</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-19.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 19/06/2025</p>
+</section>
+<section id="gross-domestic-product-per-head-at-current-market-prices" class="level2">
+<h2 class="anchored" data-anchor-id="gross-domestic-product-per-head-at-current-market-prices">Gross domestic product per head at current market prices</h2>
+<p><strong>What it measures:</strong> GDP per head including the effects of inflation</p>
+<p><strong>Unit:</strong> £</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-20.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 10/10/2025</p>
+</section>
+<section id="gross-domestic-product-per-head-in-chained-volume-measures" class="level2">
+<h2 class="anchored" data-anchor-id="gross-domestic-product-per-head-in-chained-volume-measures">Gross domestic product per head in chained volume measures</h2>
+<p><strong>What it measures:</strong> GDP per head with the effects of inflation removed by considering changes in quantity between consecutive periods, holding prices from previous periods constant</p>
+<p><strong>Unit:</strong> £</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-21.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 10/10/2025</p>
+</section>
+<section id="active-businesses" class="level2">
+<h2 class="anchored" data-anchor-id="active-businesses">Active businesses</h2>
+<p><strong>What it measures:</strong> Businesses with turnover or employment in current year</p>
+<p><strong>Unit:</strong> Number of enterprises</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-22.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 20/11/2025</p>
+</section>
+<section id="business-births" class="level2">
+<h2 class="anchored" data-anchor-id="business-births">Business births</h2>
+<p><strong>What it measures:</strong> Percentage of businesses newly registered for VAT and/or PAYE</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-23.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 20/11/2025</p>
+</section>
+<section id="business-deaths" class="level2">
+<h2 class="anchored" data-anchor-id="business-deaths">Business deaths</h2>
+<p><strong>What it measures:</strong> Percentage of businesses ceasing activity</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-24.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 20/11/2025</p>
+</section>
+<section id="high-growth-businesses" class="level2">
+<h2 class="anchored" data-anchor-id="high-growth-businesses">High growth businesses</h2>
+<p><strong>What it measures:</strong> Percentage of businesses with an average growth in employment of greater than 20% per year over a three-year period</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-25.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 20/11/2025</p>
+</section>
+<section id="one-year-business-survival-rate" class="level2">
+<h2 class="anchored" data-anchor-id="one-year-business-survival-rate">One-year business survival rate</h2>
+<p><strong>What it measures:</strong> Percentage of newly born businesses that survived for one year</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-26.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 20/11/2025</p>
+</section>
+<section id="two-year-business-survival-rate" class="level2">
+<h2 class="anchored" data-anchor-id="two-year-business-survival-rate">Two-year business survival rate</h2>
+<p><strong>What it measures:</strong> Percentage of newly born businesses that survived for two years</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-27.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 20/11/2025</p>
+</section>
+<section id="three-year-business-survival-rate" class="level2">
+<h2 class="anchored" data-anchor-id="three-year-business-survival-rate">Three-year business survival rate</h2>
+<p><strong>What it measures:</strong> Percentage of newly born businesses that survived for three years</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-28.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 20/11/2025</p>
+</section>
+<section id="four-year-business-survival-rate" class="level2">
+<h2 class="anchored" data-anchor-id="four-year-business-survival-rate">Four-year business survival rate</h2>
+<p><strong>What it measures:</strong> Percentage of newly born businesses that survived for four years</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-29.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 20/11/2025</p>
+</section>
+<section id="five-year-business-survival-rate" class="level2">
+<h2 class="anchored" data-anchor-id="five-year-business-survival-rate">Five-year business survival rate</h2>
+<p><strong>What it measures:</strong> Percentage of newly born businesses that survived for five years</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-30.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 20/11/2025</p>
+</section>
+<section id="food-outlets" class="level2">
+<h2 class="anchored" data-anchor-id="food-outlets">Food outlets</h2>
+<p><strong>What it measures:</strong> Rate of live enterprises in the food and beverage service industry, per 1,000 population</p>
+<p><strong>Unit:</strong> Rate per 1000 people</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-31.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 24/09/2025</p>
+</section>
+<section id="net-additions-to-the-housing-stock-england" class="level2">
+<h2 class="anchored" data-anchor-id="net-additions-to-the-housing-stock-england">Net additions to the housing stock (England)</h2>
+<p><strong>What it measures:</strong> Net additions to the housing stock per 1,000 dwellings</p>
+<p><strong>Unit:</strong> Net additional dwellings per 1,000 stock</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-32.png" class="img-fluid" width="672"></p>
+<p>Source: Ministry of Housing, Communities and Local Government, published on 20/11/2025</p>
+</section>
+<section id="average-house-price" class="level2">
+<h2 class="anchored" data-anchor-id="average-house-price">Average house price</h2>
+<p><strong>What it measures:</strong> Average monthly price of a property (£)</p>
+<p><strong>Unit:</strong> £</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-33.png" class="img-fluid" width="672"></p>
+<p>Source: HM Land Registry, published on 19/08/2026</p>
+</section>
+<section id="housing-affordability-ratio-residence-based" class="level2">
+<h2 class="anchored" data-anchor-id="housing-affordability-ratio-residence-based">Housing affordability ratio (residence-based)</h2>
+<p><strong>What it measures:</strong> Ratio of median house price to median gross annual residence-based earnings</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-34.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 26/03/2026</p>
+</section>
+<section id="first-time-buyer-mortgage-sales" class="level2">
+<h2 class="anchored" data-anchor-id="first-time-buyer-mortgage-sales">First-time buyer mortgage sales</h2>
+<p><strong>What it measures:</strong> First-time buyer mortgage sales per 1,000 dwellings</p>
+<p><strong>Unit:</strong> Rate per 1,000 dwelling stock</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-35.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 11/06/2025</p>
+</section>
+<section id="average-length-of-short-term-let-stay" class="level2">
+<h2 class="anchored" data-anchor-id="average-length-of-short-term-let-stay">Average length of short-term let stay</h2>
+<p><strong>What it measures:</strong> Average length of stay (in nights) at a short-term let</p>
+<p><strong>Unit:</strong> Average length of stay in nights</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-36.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 24/06/2026</p>
+</section>
+<section id="number-of-guest-nights-at-a-short-term-let" class="level2">
+<h2 class="anchored" data-anchor-id="number-of-guest-nights-at-a-short-term-let">Number of guest nights at a short-term let</h2>
+<p><strong>What it measures:</strong> The number of guest nights spent during a stay at a short-term let, with a night counted per individual member of the visiting group</p>
+<p><strong>Unit:</strong> Number of guest nights</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-37.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 24/06/2026</p>
+</section>
+<section id="further-education-and-skills-learner-achievements" class="level2">
+<h2 class="anchored" data-anchor-id="further-education-and-skills-learner-achievements">Further education and skills learner achievements</h2>
+<p><strong>What it measures:</strong> People aged 19 and over achieving a funded further education and skills learning aim, per 100,000 people</p>
+<p><strong>Unit:</strong> Rate per 100,000 population</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-38.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Education, published on 27/11/2025</p>
+</section>
+<section id="further-education-and-skills-participation" class="level2">
+<h2 class="anchored" data-anchor-id="further-education-and-skills-participation">Further education and skills participation</h2>
+<p><strong>What it measures:</strong> People aged 19 and over participating in further education and skills learning (including apprenticeships), per 100,000 people</p>
+<p><strong>Unit:</strong> Rate per 100,000 population</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-39.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Education, published on 27/11/2025</p>
+</section>
+<section id="gcses-in-english-and-maths" class="level2">
+<h2 class="anchored" data-anchor-id="gcses-in-english-and-maths">GCSEs in English and Maths</h2>
+<p><strong>What it measures:</strong> Percentage of people achieving GCSEs in both subjects by age 19</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-40.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Education, published on 23/04/2026</p>
+</section>
+<section id="level-3-or-above-qualifications-great-britain" class="level2">
+<h2 class="anchored" data-anchor-id="level-3-or-above-qualifications-great-britain">Level 3 or above qualifications (Great Britain)</h2>
+<p><strong>What it measures:</strong> Percentage of people aged 16 to 64 with Level 3 or above qualifications</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-41.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 16/04/2024</p>
+</section>
+<section id="pupils-at-the-end-of-key-stage-2-meeting-the-expected-standard-in-reading-writing-and-maths-combined" class="level2">
+<h2 class="anchored" data-anchor-id="pupils-at-the-end-of-key-stage-2-meeting-the-expected-standard-in-reading-writing-and-maths-combined">Pupils at the end of key stage 2 meeting the expected standard in reading, writing and maths (combined)</h2>
+<p><strong>What it measures:</strong> Percentage of pupils at the end of key stage 2 in state-funded schools meeting the expected standard in reading, writing and maths (combined)</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-42.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Education, published on 11/12/2025</p>
+</section>
+<section id="no-qualifications" class="level2">
+<h2 class="anchored" data-anchor-id="no-qualifications">No qualifications</h2>
+<p><strong>What it measures:</strong> Percentage of people aged 16 to 64 with no qualifications</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-43.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 16/04/2024</p>
+</section>
+<section id="communication-and-language-skills-by-end-of-early-years-foundation-stage" class="level2">
+<h2 class="anchored" data-anchor-id="communication-and-language-skills-by-end-of-early-years-foundation-stage">Communication and language skills by end of early years foundation stage</h2>
+<p><strong>What it measures:</strong> Percentage of 5 year olds at ‘expected level’ across all communication and language early learning goals</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-44.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Education, published on 27/11/2025</p>
+</section>
+<section id="literacy-skills-by-end-of-early-years-foundation-stage" class="level2">
+<h2 class="anchored" data-anchor-id="literacy-skills-by-end-of-early-years-foundation-stage">Literacy skills by end of early years foundation stage</h2>
+<p><strong>What it measures:</strong> Percentage of 5 year olds at ‘expected level’ across all literacy early learning goals</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-45.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Education, published on 27/11/2025</p>
+</section>
+<section id="maths-skills-by-end-of-early-years-foundation-stage" class="level2">
+<h2 class="anchored" data-anchor-id="maths-skills-by-end-of-early-years-foundation-stage">Maths skills by end of early years foundation stage</h2>
+<p><strong>What it measures:</strong> Percentage of 5 year olds at ‘expected level’ across all maths early learning goals</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-46.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Education, published on 27/11/2025</p>
+</section>
+<section id="persistent-absences-for-all-pupils" class="level2">
+<h2 class="anchored" data-anchor-id="persistent-absences-for-all-pupils">Persistent absences for all pupils</h2>
+<p><strong>What it measures:</strong> Percentage of pupils in state-funded schools that were absent for 10% or more of academic year</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-47.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Education, published on 26/03/2026</p>
+</section>
+<section id="persistent-absences-for-pupils-eligible-for-free-school-meals" class="level2">
+<h2 class="anchored" data-anchor-id="persistent-absences-for-pupils-eligible-for-free-school-meals">Persistent absences for pupils eligible for free school meals</h2>
+<p><strong>What it measures:</strong> Percentage of FSM-eligible pupils in state-funded schools that were absent for 10% or more of academic year</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-48.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Education, published on 26/03/2026</p>
+</section>
+<section id="persistent-absences-for-pupils-looked-after-by-local-authorities" class="level2">
+<h2 class="anchored" data-anchor-id="persistent-absences-for-pupils-looked-after-by-local-authorities">Persistent absences for pupils looked after by local authorities</h2>
+<p><strong>What it measures:</strong> Percentage of pupils looked after continuously for at least 12 months by local authorities in England that were absent for 10% or more of academic year</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-49.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Education, published on 02/04/2026</p>
+</section>
+<section id="apprenticeship-achievements-england" class="level2">
+<h2 class="anchored" data-anchor-id="apprenticeship-achievements-england">Apprenticeship achievements (England)</h2>
+<p><strong>What it measures:</strong> Apprenticeship programme achievements by people aged 16 or above, per 100,000 people</p>
+<p><strong>Unit:</strong> Rate per 100,000 population</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-50.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Education, published on 27/11/2025</p>
+</section>
+<section id="apprenticeship-starts-england" class="level2">
+<h2 class="anchored" data-anchor-id="apprenticeship-starts-england">Apprenticeship starts (England)</h2>
+<p><strong>What it measures:</strong> Apprenticeship programme starts by people aged 16 or above, per 100,000 people</p>
+<p><strong>Unit:</strong> Rate per 100,000 population</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-51.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Education, published on 27/11/2025</p>
+</section>
+<section id="cigarette-smokers" class="level2">
+<h2 class="anchored" data-anchor-id="cigarette-smokers">Cigarette smokers</h2>
+<p><strong>What it measures:</strong> Percentage of people aged 18 and over who state they currently smoke cigarettes (excluding e-cigarettes)</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-52.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 04/11/2025</p>
+</section>
+<section id="healthy-weight-prevalence-in-children-at-reception-age" class="level2">
+<h2 class="anchored" data-anchor-id="healthy-weight-prevalence-in-children-at-reception-age">Healthy weight prevalence in children at reception age</h2>
+<p><strong>What it measures:</strong> Percentage of children aged 4 to 5 classified as at a healthy weight</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-53.png" class="img-fluid" width="672"></p>
+<p>Source: Office for Health Improvement and Disparities, published on 04/11/2025</p>
+</section>
+<section id="healthy-weight-prevalence-in-children-at-year-6-age" class="level2">
+<h2 class="anchored" data-anchor-id="healthy-weight-prevalence-in-children-at-year-6-age">Healthy weight prevalence in children at Year 6 age</h2>
+<p><strong>What it measures:</strong> Percentage of children aged 10 to 11 classified as at a healthy weight</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-54.png" class="img-fluid" width="672"></p>
+<p>Source: Office for Health Improvement and Disparities, published on 04/11/2025</p>
+</section>
+<section id="obesity-prevalence-in-children-at-reception-age" class="level2">
+<h2 class="anchored" data-anchor-id="obesity-prevalence-in-children-at-reception-age">Obesity prevalence in children at reception age</h2>
+<p><strong>What it measures:</strong> Percentage of children aged 4 to 5 classified as living with obesity</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-55.png" class="img-fluid" width="672"></p>
+<p>Source: Office for Health Improvement and Disparities, published on 04/11/2025</p>
+</section>
+<section id="obesity-prevalence-in-children-at-year-6-age" class="level2">
+<h2 class="anchored" data-anchor-id="obesity-prevalence-in-children-at-year-6-age">Obesity prevalence in children at Year 6 age</h2>
+<p><strong>What it measures:</strong> Percentage of children aged 10 to 11 classified as living with obesity</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-56.png" class="img-fluid" width="672"></p>
+<p>Source: Office for Health Improvement and Disparities, published on 04/11/2025</p>
+</section>
+<section id="overweight-prevalence-in-children-at-reception-age" class="level2">
+<h2 class="anchored" data-anchor-id="overweight-prevalence-in-children-at-reception-age">Overweight prevalence in children at reception age</h2>
+<p><strong>What it measures:</strong> Percentage of children aged 4 to 5 classified as overweight</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-57.png" class="img-fluid" width="672"></p>
+<p>Source: Office for Health Improvement and Disparities, published on 04/11/2025</p>
+</section>
+<section id="overweight-prevalence-in-children-at-year-6-age" class="level2">
+<h2 class="anchored" data-anchor-id="overweight-prevalence-in-children-at-year-6-age">Overweight prevalence in children at Year 6 age</h2>
+<p><strong>What it measures:</strong> Percentage of children aged 10 to 11 classified as overweight</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-58.png" class="img-fluid" width="672"></p>
+<p>Source: Office for Health Improvement and Disparities, published on 04/11/2025</p>
+</section>
+<section id="underweight-prevalence-in-children-at-reception-age" class="level2">
+<h2 class="anchored" data-anchor-id="underweight-prevalence-in-children-at-reception-age">Underweight prevalence in children at reception age</h2>
+<p><strong>What it measures:</strong> Percentage of children aged 4 to 5 classified as underweight</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-59.png" class="img-fluid" width="672"></p>
+<p>Source: Office for Health Improvement and Disparities, published on 04/11/2025</p>
+</section>
+<section id="underweight-prevalence-in-children-at-year-6-age" class="level2">
+<h2 class="anchored" data-anchor-id="underweight-prevalence-in-children-at-year-6-age">Underweight prevalence in children at Year 6 age</h2>
+<p><strong>What it measures:</strong> Percentage of children aged 10 to 11 classified as underweight</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-60.png" class="img-fluid" width="672"></p>
+<p>Source: Office for Health Improvement and Disparities, published on 04/11/2025</p>
+</section>
+<section id="adult-obesity-prevalence" class="level2">
+<h2 class="anchored" data-anchor-id="adult-obesity-prevalence">Adult obesity prevalence</h2>
+<p><strong>What it measures:</strong> Percentage of adults aged 18 and over classified as living with obesity</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-61.png" class="img-fluid" width="672"></p>
+<p>Source: Office for Health Improvement and Disparities, published on 06/05/2026</p>
+</section>
+<section id="cancer-diagnosis-at-stage-1-and-2" class="level2">
+<h2 class="anchored" data-anchor-id="cancer-diagnosis-at-stage-1-and-2">Cancer diagnosis at stage 1 and 2</h2>
+<p><strong>What it measures:</strong> New cases of cancer diagnosed at stages 1 and 2 as a percentage of all new cases of cancer diagnosed at any known stage</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-62.png" class="img-fluid" width="672"></p>
+<p>Source: Office for Health Improvement and Disparities, published on 04/11/2025</p>
+</section>
+<section id="preventable-cardiovascular-mortality-england" class="level2">
+<h2 class="anchored" data-anchor-id="preventable-cardiovascular-mortality-england">Preventable cardiovascular mortality (England)</h2>
+<p><strong>What it measures:</strong> Age-standardised mortality from cardiovascular diseases considered preventable for people aged under 75, per 100,000 people</p>
+<p><strong>Unit:</strong> Rate per 100,000 population</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-63.png" class="img-fluid" width="672"></p>
+<p>Source: Office for Health Improvement and Disparities, published on 04/11/2025</p>
+</section>
+<section id="female-healthy-life-expectancy" class="level2">
+<h2 class="anchored" data-anchor-id="female-healthy-life-expectancy">Female healthy life expectancy</h2>
+<p><strong>What it measures:</strong> Average years expected to be lived in good health for females born in the given year</p>
+<p><strong>Unit:</strong> yrs</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-64.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 19/02/2026</p>
+</section>
+<section id="male-healthy-life-expectancy" class="level2">
+<h2 class="anchored" data-anchor-id="male-healthy-life-expectancy">Male healthy life expectancy</h2>
+<p><strong>What it measures:</strong> Average years expected to be lived in good health for males born in the given year</p>
+<p><strong>Unit:</strong> yrs</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-65.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 19/02/2026</p>
+</section>
+<section id="anxiety" class="level2">
+<h2 class="anchored" data-anchor-id="anxiety">Anxiety</h2>
+<p><strong>What it measures:</strong> Average rating for anxiety during previous day (0 = ‘not at all anxious’, 10 = ‘completely anxious’) for people aged 16 and over</p>
+<p><strong>Unit:</strong> Score out of 10</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-66.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 07/11/2023</p>
+</section>
+<section id="feeling-life-is-worthwhile" class="level2">
+<h2 class="anchored" data-anchor-id="feeling-life-is-worthwhile">Feeling life is worthwhile</h2>
+<p><strong>What it measures:</strong> Average rating that the things they do in life are worthwhile (0 = ‘not at all worthwhile’, 10 = ‘completely worthwhile’) for people aged 16 and over</p>
+<p><strong>Unit:</strong> Score out of 10</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-67.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 07/11/2023</p>
+</section>
+<section id="happiness" class="level2">
+<h2 class="anchored" data-anchor-id="happiness">Happiness</h2>
+<p><strong>What it measures:</strong> Average rating of happiness (0 = ‘not at all happy’, 10 = ‘completely happy’) for people aged 16 and over</p>
+<p><strong>Unit:</strong> Score out of 10</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-68.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 07/11/2023</p>
+</section>
+<section id="life-satisfaction" class="level2">
+<h2 class="anchored" data-anchor-id="life-satisfaction">Life satisfaction</h2>
+<p><strong>What it measures:</strong> Average rating of life satisfaction (0 = ‘not at all satisfied’, 10 = ‘completely satisfied’) for people aged 16 and over</p>
+<p><strong>Unit:</strong> Score out of 10</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-69.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 07/11/2023</p>
+</section>
+<section id="domestic-electricity-consumption" class="level2">
+<h2 class="anchored" data-anchor-id="domestic-electricity-consumption">Domestic electricity consumption</h2>
+<p><strong>What it measures:</strong> Median domestic electricity consumption (kWh)</p>
+<p><strong>Unit:</strong> kWh per meter point</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-70.png" class="img-fluid" width="672"></p>
+<p>Source 1: Department for Energy Security and Net Zero (Great Britain), published on 18/12/2025 | Source 2: Department for Energy Security and Net Zero (Northern Ireland), published on 18/12/2025</p>
+</section>
+<section id="domestic-gas-consumption" class="level2">
+<h2 class="anchored" data-anchor-id="domestic-gas-consumption">Domestic gas consumption</h2>
+<p><strong>What it measures:</strong> Median domestic gas consumption (kWh)</p>
+<p><strong>Unit:</strong> kWh per meter point</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-71.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Energy Security and Net Zero, published on 18/12/2025</p>
+</section>
+<section id="greenhouse-gas-emissions" class="level2">
+<h2 class="anchored" data-anchor-id="greenhouse-gas-emissions">Greenhouse gas emissions</h2>
+<p><strong>What it measures:</strong> Greenhouse gas emissions (tCO2e) per capita</p>
+<p><strong>Unit:</strong> Tonnes of CO2 equivalent</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-72.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Energy Security and Net Zero, published on 25/06/2026</p>
+</section>
+<section id="air-pollution-regulating" class="level2">
+<h2 class="anchored" data-anchor-id="air-pollution-regulating">Air pollution regulating</h2>
+<p><strong>What it measures:</strong> Estimated value of pollution removal by natural habitats (£ millions, 2024 prices)</p>
+<p><strong>Unit:</strong> £ million</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-73.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 05/12/2025</p>
+</section>
+<section id="greenhouse-gas-regulating" class="level2">
+<h2 class="anchored" data-anchor-id="greenhouse-gas-regulating">Greenhouse gas regulating</h2>
+<p><strong>What it measures:</strong> Estimated value of the net greenhouse gases removed from the atmosphere or emitted by natural habitats (£ million, 2024 prices)</p>
+<p><strong>Unit:</strong> £ million</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-74.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 05/12/2025</p>
+</section>
+<section id="urban-heat-regulating" class="level2">
+<h2 class="anchored" data-anchor-id="urban-heat-regulating">Urban heat regulating</h2>
+<p><strong>What it measures:</strong> Estimated value of cooling provided by natural habitats in urban areas (£ millions, 2024 prices)</p>
+<p><strong>Unit:</strong> £ million</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-75.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 05/12/2025</p>
+</section>
+<section id="gigabit-capable-broadband" class="level2">
+<h2 class="anchored" data-anchor-id="gigabit-capable-broadband">Gigabit capable broadband</h2>
+<p><strong>What it measures:</strong> Percentage of premises that have coverage from a gigabit-capable service (download speeds of 1,000 Mbps or more)</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-76.png" class="img-fluid" width="672"></p>
+<p>Source: Ofcom, published on 13/05/2026</p>
+</section>
+<section id="g-coverage" class="level2">
+<h2 class="anchored" data-anchor-id="g-coverage">4G coverage</h2>
+<p><strong>What it measures:</strong> Percentage of area with 4G coverage from at least one mobile network provider</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-77.png" class="img-fluid" width="672"></p>
+<p>Source: Ofcom, published on 13/05/2026</p>
+</section>
+<section id="g-coverage-1" class="level2">
+<h2 class="anchored" data-anchor-id="g-coverage-1">5G coverage</h2>
+<p><strong>What it measures:</strong> Percentage of area with 5G coverage from at least one mobile network provider</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-78.png" class="img-fluid" width="672"></p>
+<p>Source: Ofcom, published on 13/05/2026</p>
+</section>
+<section id="premises-below-30mbps" class="level2">
+<h2 class="anchored" data-anchor-id="premises-below-30mbps">Premises below 30Mbps</h2>
+<p><strong>What it measures:</strong> Percentage of premises that do not have access to services above 30Mbps</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-79.png" class="img-fluid" width="672"></p>
+<p>Source: Ofcom, published on 13/05/2026</p>
+</section>
+<section id="motor-vehicle-flow" class="level2">
+<h2 class="anchored" data-anchor-id="motor-vehicle-flow">Motor vehicle flow</h2>
+<p><strong>What it measures:</strong> Annual Average Daily Flow (AADF) which measures the average number of vehicles per mile of road on a typical day</p>
+<p><strong>Unit:</strong> Annual average daily flow</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-80.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Transport, published on 20/05/2026</p>
+</section>
+<section id="public-electric-vehicle-chargers" class="level2">
+<h2 class="anchored" data-anchor-id="public-electric-vehicle-chargers">Public electric vehicle chargers</h2>
+<p><strong>What it measures:</strong> Publicly available electric vehicle chargers at all speeds per 100,000 people</p>
+<p><strong>Unit:</strong> Rate per 100,000 population</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-81.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Transport, sourced from Zapmap, published on 27/08/2026</p>
+</section>
+<section id="travel-time-to-employment-centre-by-bicycle" class="level2">
+<h2 class="anchored" data-anchor-id="travel-time-to-employment-centre-by-bicycle">Travel time to employment centre by bicycle</h2>
+<p><strong>What it measures:</strong> Average travel time in minutes to nearest employment centre with 500+ jobs available</p>
+<p><strong>Unit:</strong> mins</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-82.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Transport, published on 04/11/2021</p>
+</section>
+<section id="travel-time-to-employment-centre-by-car" class="level2">
+<h2 class="anchored" data-anchor-id="travel-time-to-employment-centre-by-car">Travel time to employment centre by car</h2>
+<p><strong>What it measures:</strong> Average travel time in minutes to nearest employment centre with 500+ jobs available</p>
+<p><strong>Unit:</strong> mins</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-83.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Transport, published on 04/11/2021</p>
+</section>
+<section id="travel-time-to-employment-centre-by-public-transport-and-walking" class="level2">
+<h2 class="anchored" data-anchor-id="travel-time-to-employment-centre-by-public-transport-and-walking">Travel time to employment centre by public transport and walking</h2>
+<p><strong>What it measures:</strong> Average travel time in minutes to nearest employment centre with 500+ jobs available</p>
+<p><strong>Unit:</strong> mins</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-84.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Transport, published on 04/11/2021</p>
+</section>
+<section id="supermarkets" class="level2">
+<h2 class="anchored" data-anchor-id="supermarkets">Supermarkets</h2>
+<p><strong>What it measures:</strong> Supermarkets per 10,000 people</p>
+<p><strong>Unit:</strong> Count per 10,000 people</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-85.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 07/03/2024</p>
+</section>
+<section id="sports-facilities" class="level2">
+<h2 class="anchored" data-anchor-id="sports-facilities">Sports facilities</h2>
+<p><strong>What it measures:</strong> Sports facilities per 10,000 people</p>
+<p><strong>Unit:</strong> Count per 10,000 people</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-86.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 07/03/2024</p>
+</section>
+<section id="museums" class="level2">
+<h2 class="anchored" data-anchor-id="museums">Museums</h2>
+<p><strong>What it measures:</strong> Museums per 100,000 people</p>
+<p><strong>Unit:</strong> Count per 100,000 people</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-87.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 07/03/2024</p>
+</section>
+<section id="residents-within-a-30-minute-walk-of-their-nearest-library" class="level2">
+<h2 class="anchored" data-anchor-id="residents-within-a-30-minute-walk-of-their-nearest-library">Residents within a 30 minute walk of their nearest library</h2>
+<p><strong>What it measures:</strong> Percentage of resident population within a 30 minute walk of their nearest library</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-88.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 17/10/2024</p>
+</section>
+<section id="residents-within-a-30-minute-walk-of-their-nearest-railway-station" class="level2">
+<h2 class="anchored" data-anchor-id="residents-within-a-30-minute-walk-of-their-nearest-railway-station">Residents within a 30 minute walk of their nearest railway station</h2>
+<p><strong>What it measures:</strong> Percentage of resident population within a 30 minute walk of their nearest railway station</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-89.png" class="img-fluid" width="672"></p>
+<p>Source: Office for National Statistics, published on 17/10/2024</p>
+</section>
+<section id="engaged-with-the-arts" class="level2">
+<h2 class="anchored" data-anchor-id="engaged-with-the-arts">Engaged with the arts</h2>
+<p><strong>What it measures:</strong> Percentage of adults who reported engaging with the arts physically in the last 12 months</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-90.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Digital, Culture, Media and Sport, published on 31/07/2026</p>
+</section>
+<section id="visited-a-heritage-site" class="level2">
+<h2 class="anchored" data-anchor-id="visited-a-heritage-site">Visited a heritage site</h2>
+<p><strong>What it measures:</strong> Percentage of adults who reported visiting a heritage site in person in the last 12 months</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-91.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Digital, Culture, Media and Sport, published on 31/07/2026</p>
+</section>
+<section id="visited-a-museum-or-gallery" class="level2">
+<h2 class="anchored" data-anchor-id="visited-a-museum-or-gallery">Visited a museum or gallery</h2>
+<p><strong>What it measures:</strong> Percentage of adults who reported visiting a museum or gallery in person in the last 12 months</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-92.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Digital, Culture, Media and Sport, published on 31/07/2026</p>
+</section>
+<section id="visited-a-public-library" class="level2">
+<h2 class="anchored" data-anchor-id="visited-a-public-library">Visited a public library</h2>
+<p><strong>What it measures:</strong> Percentage of adults who reported visiting a public library building or mobile library in person in the last 12 months</p>
+<p><strong>Unit:</strong> %</p>
+<p><img src="report_files/figure-html/unnamed-chunk-2-93.png" class="img-fluid" width="672"></p>
+<p>Source: Department for Digital, Culture, Media and Sport, published on 31/07/2026</p>
+</section>
+</section>
+<section id="notes" class="level1">
+<h1>Notes</h1>
+<p>This report is generated automatically from the underlying ONS Explore Local Statistics data and accompanying metadata.</p>
+<p>The latest available period differs between indicators because the underlying datasets are published and updated at different frequencies.</p>
+<p>The inclusion of an indicator in this report does not imply that it is a measure of local authority performance. Many indicators are influenced by wider economic, demographic, social and geographic factors.</p>
+<p>For detailed definitions, methodology, revisions and statistical quality information, users should refer to the original data source identified beneath each chart.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
