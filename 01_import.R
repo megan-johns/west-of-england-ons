@@ -7,6 +7,7 @@
 # 1. LOAD PACKAGES
 library(tidyverse)
 library(readxl)
+library(ggiraph)
 
 
 # 2. SETTINGS
@@ -53,21 +54,83 @@ english_las <- ons %>%
   )
 
 
-# 5. PLOT FUNCTION
+# 5. FORMATTING HELPERS
 
-plot_indicator <- function(indicator_name) {
-  
-  plot_data <- english_las %>%
+# Monthly series show month and year; annual series show the year only
+
+format_period <- function(period) {
+
+  gaps <- as.numeric(diff(sort(unique(period))))
+
+  if (length(gaps) > 0 && median(gaps) < 200) {
+    format(period, "%b %Y")
+  } else {
+    format(period, "%Y")
+  }
+}
+
+
+# Precision is set per indicator so small rates keep their decimals and
+# large counts are not cluttered with them
+
+format_value <- function(value) {
+
+  if (all(value == round(value))) {
+    accuracy <- 1
+  } else {
+    typical <- median(abs(value[value != 0]))
+    accuracy <- 10^(floor(log10(typical)) - 2)
+    accuracy <- min(max(accuracy, 0.001), 1)
+  }
+
+  scales::number(
+    value,
+    accuracy = accuracy,
+    big.mark = ","
+  )
+}
+
+
+get_indicator_data <- function(indicator_name) {
+
+  english_las %>%
     filter(
       indicator == indicator_name,
       indicator != "Population by age and sex",
       !is.na(value)
+    ) %>%
+    mutate(
+      period_label = format_period(period),
+      value_label = format_value(value)
     )
-  
+}
+
+
+# 6. PLOT FUNCTION
+
+plot_indicator <- function(indicator_name, unit = NA_character_) {
+
+  plot_data <- get_indicator_data(indicator_name)
+
+  unit_label <- if (is.na(unit) || unit == "") "" else paste0(" ", unit)
+
   number_of_periods <- n_distinct(plot_data$period)
-  
+
   if (number_of_periods > 1) {
-    
+
+    highlighted_data <- plot_data %>%
+      filter(
+        highlighted != "Other local authorities"
+      ) %>%
+      mutate(
+        tooltip = paste0(
+          "<b>", htmltools::htmlEscape(areanm), "</b><br>",
+          period_label, "<br>",
+          value_label, htmltools::htmlEscape(unit_label)
+        ),
+        point_id = paste(areacd, period)
+      )
+
     ggplot(
       plot_data,
       aes(
@@ -77,7 +140,8 @@ plot_indicator <- function(indicator_name) {
         colour = highlighted
       )
     ) +
-      
+
+      # Background lines stay static to keep the SVG small
       geom_line(
         data = filter(
           plot_data,
@@ -87,15 +151,27 @@ plot_indicator <- function(indicator_name) {
         linewidth = 0.4,
         alpha = 0.6
       ) +
-      
-      geom_line(
-        data = filter(
-          plot_data,
-          highlighted != "Other local authorities"
+
+      geom_line_interactive(
+        data = highlighted_data,
+        aes(
+          data_id = highlighted
         ),
         linewidth = 1.2
       ) +
-      
+
+      # Invisible points carry the hover values; one appears on hover
+      geom_point_interactive(
+        data = highlighted_data,
+        aes(
+          tooltip = tooltip,
+          data_id = point_id
+        ),
+        size = 2.5,
+        alpha = 0,
+        show.legend = FALSE
+      ) +
+
       scale_colour_manual(
         values = west_of_england_colours
       ) +
@@ -111,14 +187,20 @@ plot_indicator <- function(indicator_name) {
         colour = NULL
       ) +
       
-      theme_minimal()
-    
+      theme_minimal(base_family = "Arial")
+
   } else {
-    
+
     single_period_data <- plot_data %>%
       arrange(value) %>%
       mutate(
-        position = row_number()
+        position = row_number(),
+        tooltip = paste0(
+          "<b>", htmltools::htmlEscape(areanm), "</b><br>",
+          period_label, "<br>",
+          value_label, htmltools::htmlEscape(unit_label), "<br>",
+          "Rank ", n() - position + 1, " of ", n(), " (highest = 1)"
+        )
       )
     
     ggplot(
@@ -134,24 +216,28 @@ plot_indicator <- function(indicator_name) {
         width = 0.85
       ) +
       
-      geom_col(
+      geom_col_interactive(
         data = filter(
           single_period_data,
           highlighted != "Other local authorities"
         ),
         aes(
-          fill = highlighted
+          fill = highlighted,
+          tooltip = tooltip,
+          data_id = areacd
         ),
         width = 0.85
       ) +
-      
-      geom_point(
+
+      geom_point_interactive(
         data = filter(
           single_period_data,
           highlighted != "Other local authorities"
         ),
         aes(
-          colour = highlighted
+          colour = highlighted,
+          tooltip = tooltip,
+          data_id = areacd
         ),
         size = 3
       ) +
@@ -193,8 +279,8 @@ plot_indicator <- function(indicator_name) {
         colour = "none"
       ) +
       
-      theme_minimal() +
-      
+      theme_minimal(base_family = "Arial") +
+
       theme(
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank()
@@ -203,14 +289,116 @@ plot_indicator <- function(indicator_name) {
 }
 
 
-# 6. METADATA SHEETS
+# 7. INTERACTIVE WRAPPER
+
+# ggiraph bundles web fonts by default (~19 MB). Arial is used for text
+# measurement but not shipped; browsers use the system copy or fall back.
+
+system_fonts <- gdtools::font_set(sans = "Arial")
+system_fonts$dependencies <- list()
+
+interactive_indicator <- function(indicator_name, unit = NA_character_) {
+
+  girafe(
+    ggobj = plot_indicator(indicator_name, unit),
+    width_svg = 8,
+    height_svg = 4.5,
+    font_set = system_fonts,
+    options = list(
+      opts_hover(
+        css = girafe_css(
+          css = "",
+          line = "stroke-width:2.5px;",
+          point = "fill-opacity:1;stroke-opacity:1;",
+          area = "stroke:#222;stroke-width:1px;"
+        )
+      ),
+      opts_tooltip(
+        css = paste0(
+          "background:#fff;color:#222;padding:6px 8px;",
+          "border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.25);",
+          "font-family:Arial,sans-serif;font-size:13px;"
+        ),
+        opacity = 0.95
+      ),
+      opts_toolbar(
+        saveaspng = TRUE,
+        pngname = "chart"
+      ),
+      opts_sizing(
+        rescale = TRUE
+      )
+    )
+  )
+}
+
+
+# 8. DATA TABLE FOR THE FOUR WEST OF ENGLAND AUTHORITIES
+
+indicator_table <- function(indicator_name) {
+
+  table_data <- get_indicator_data(indicator_name)
+
+  number_of_las <- n_distinct(table_data$areacd)
+
+  table_data <- table_data %>%
+    mutate(
+      rank = min_rank(desc(value)),
+      .by = period
+    ) %>%
+    filter(
+      highlighted != "Other local authorities"
+    )
+
+  if (n_distinct(table_data$period) > 1) {
+
+    # Latest period first; one column per authority
+    wide_table <- table_data %>%
+      arrange(
+        desc(period),
+        highlighted
+      ) %>%
+      select(
+        Period = period_label,
+        highlighted,
+        value_label
+      ) %>%
+      pivot_wider(
+        names_from = highlighted,
+        values_from = value_label,
+        values_fill = "-"
+      )
+
+    knitr::kable(
+      wide_table,
+      align = c("l", rep("r", ncol(wide_table) - 1))
+    )
+
+  } else {
+
+    table_data %>%
+      arrange(rank) %>%
+      transmute(
+        `Local authority` = areanm,
+        Period = period_label,
+        Value = value_label,
+        Rank = paste(rank, "of", number_of_las)
+      ) %>%
+      knitr::kable(
+        align = c("l", "l", "r", "r")
+      )
+  }
+}
+
+
+# 9. METADATA SHEETS
 
 metadata_sheets <- excel_sheets(
   "data/all-datasets_meta.xlsx"
 )
 
 
-# 7. READ ONE METADATA SHEET
+# 10. READ ONE METADATA SHEET
 
 read_metadata_sheet <- function(sheet_name) {
   
@@ -280,7 +468,7 @@ read_metadata_sheet <- function(sheet_name) {
 }
 
 
-# 8. BUILD METADATA TABLE
+# 11. BUILD METADATA TABLE
 
 metadata <- map_dfr(
   metadata_sheets,
@@ -301,7 +489,7 @@ metadata <- map_dfr(
   )
 
 
-# 9. KEEP METADATA FOR ENGLISH LA INDICATORS
+# 12. KEEP METADATA FOR ENGLISH LA INDICATORS
 
 metadata_english <- metadata %>%
   semi_join(

@@ -68,6 +68,10 @@ For indicators with only one period of data, English local authorities are order
 
 The charts use the full period of data available for each indicator, so the time periods covered vary between indicators.
 
+Hover over a highlighted line or bar to see the local authority, period and value. For single-period indicators, the tooltip also shows the authority's rank among English local authorities. Each chart can be downloaded as a PNG using the toolbar in its top-right corner.
+
+Below each chart, a collapsible table lists the values for the four West of England authorities.
+
 # Important points when interpreting the data
 
 This report is intended to support comparison and exploration rather than provide a ranking of local authorities.
@@ -115,49 +119,45 @@ all_indicators <- metadata_english %>%
   pull(indicator)
 
 
-# Generate one section for each indicator
+# Generate one section for each indicator.
+# knit_child() is used rather than print() so that the interactive
+# charts register their JavaScript dependencies correctly.
 
-for (indicator_name in all_indicators) {
+sections <- map_chr(all_indicators, function(indicator_name) {
 
   indicator_meta <- metadata_english %>%
     filter(
       indicator == indicator_name
     )
 
-  cat(
-    "\n\n## ",
-    indicator_name,
-    "\n\n",
-    sep = ""
+  knitr::knit_child(
+    text = c(
+      "",
+      "## `r indicator_name`",
+      "",
+      "**What it measures:** `r indicator_meta$description`",
+      "",
+      "**Unit:** `r indicator_meta$unit`",
+      "",
+      "```{r}",
+      "interactive_indicator(indicator_name, indicator_meta$unit)",
+      "```",
+      "",
+      "::: {.callout-note collapse=\"true\" appearance=\"simple\" title=\"Data for the West of England authorities\"}",
+      "```{r}",
+      "indicator_table(indicator_name)",
+      "```",
+      ":::",
+      "",
+      "`r indicator_meta$source`",
+      ""
+    ),
+    envir = environment(),
+    quiet = TRUE
   )
+})
 
-  cat(
-    "**What it measures:** ",
-    indicator_meta$description,
-    "\n\n",
-    sep = ""
-  )
-
-  cat(
-    "**Unit:** ",
-    indicator_meta$unit,
-    "\n\n",
-    sep = ""
-  )
-
-  print(
-    plot_indicator(
-      indicator_name
-    )
-  )
-
-  cat(
-    "\n\n",
-    indicator_meta$source,
-    "\n\n",
-    sep = ""
-  )
-}
+cat(sections, sep = "\n")
 ```
 
 # Notes
